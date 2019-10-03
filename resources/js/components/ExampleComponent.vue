@@ -1,14 +1,15 @@
-<style scoped>
-</style>
-
 <template>
     <div>
-        <p>Hey I'm an Example Component!</p>
+        <div>
+            Welcome to Jot.
+        </div>
     </div>
 </template>
 
-<script lang="ts">
-    import { Vue, Component } from "vue-property-decorator";
-    @Component({})
-    export default class ExampleComponent extends Vue {}
+<script>
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
 </script>

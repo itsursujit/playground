@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 require('laravel-mix-purgecss');
-
+let atImport = require('postcss-import');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -18,6 +18,13 @@ mix.js('resources/js/app.js', 'public/js').extract()
     .options({
         processCssUrls: false,
         postCss: [
+            atImport(),
             tailwindcss('./tailwind.config.js')
         ],
     }).purgeCss();
+
+mix.browserSync('https://playground.test');
+
+if (mix.inProduction()) {
+    mix.version();
+}

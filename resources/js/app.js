@@ -1,14 +1,14 @@
-import "reflect-metadata";
-import Vue from "vue";
-import Axios from "axios";
-import ExampleComponent from "./components/ExampleComponent.vue";
+import Vue from 'vue';
+import router from './router';
+import App from './components/App';
 
-Vue.component("example-component", ExampleComponent);
+require('./bootstrap');
 
-Vue.prototype.$http = Axios;
-Vue.prototype.$http.defaults.headers.common = {
-    "X-Requested-With": "XMLHttpRequest",
-    "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]')
-};
-
-new Vue({}).$mount("#app");
+Vue.config.productionTip = false;
+const app = new Vue({
+    el: '#app',
+    components : {
+        App
+    },
+    router
+});
